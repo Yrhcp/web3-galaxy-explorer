@@ -8,7 +8,6 @@ interface PlanetViewProps {
   planetName: string;
   levelId: number;
   icon: string;
-  accentColor: string;
   onComplete: () => void;
 }
 
@@ -17,7 +16,6 @@ export default function PlanetView({
   planetName,
   levelId,
   icon,
-  accentColor,
   onComplete,
 }: PlanetViewProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
