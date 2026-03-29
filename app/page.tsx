@@ -140,8 +140,10 @@ export default function Home() {
         {phase === "learn" && (
           <div className="animate-fadeIn w-full">
             <PlanetView
+              key={`planet-${currentLevelIndex}`}
               concepts={level.threeConcepts}
               planetName={level.name}
+              levelId={level.id}
               accentColor={level.colorPalette.accent}
               onComplete={handleConceptsComplete}
             />
@@ -152,8 +154,10 @@ export default function Home() {
         {phase === "quest" && level.finalQuest && (
           <div className="animate-fadeIn w-full">
             <QuestView
+              key={`quest-${currentLevelIndex}`}
               quest={level.finalQuest}
               planetName={level.name}
+              levelId={level.id}
               accentColor={level.colorPalette.accent}
               nextLevelName={levels[currentLevelIndex + 1]?.name}
               onSuccess={handleQuestSuccess}

@@ -6,6 +6,7 @@ import { PlanetQuest } from "@/src/types";
 interface QuestViewProps {
   quest: PlanetQuest;
   planetName: string;
+  levelId: number;
   accentColor: string;
   nextLevelName?: string;
   onSuccess: () => void;
@@ -14,6 +15,7 @@ interface QuestViewProps {
 export default function QuestView({
   quest,
   planetName,
+  levelId,
   accentColor,
   nextLevelName,
   onSuccess,
@@ -60,7 +62,7 @@ export default function QuestView({
           )}
         </div>
         <h2 className={`text-2xl font-bold ${accentColor}`}>
-          {planetName} Quest
+          Level {levelId}: {planetName}
         </h2>
         <p className="text-slate-400 text-sm mt-1">
           Answer correctly to proceed

@@ -33,10 +33,10 @@ export const levels: PlanetLevel[] = [
       question: "What best describes a blockchain?",
       options: [
         "A central database controlled by a single tech company.",
-        "A distributed digital ledger shared across a network of computers.",
         "A physical hardware device used to store digital currencies.",
+        "A distributed digital ledger shared across a network of computers.",
       ],
-      correctOptionIndex: 1,
+      correctOptionIndex: 2,
     },
   },
   {
@@ -71,11 +71,11 @@ export const levels: PlanetLevel[] = [
       question:
         "What should you do if a website or customer support agent asks for your 12-word Seed Phrase?",
       options: [
-        "Share it immediately to verify your account identity.",
         "Never share it under any circumstances, as it gives full access to your funds.",
+        "Share it immediately to verify your account identity.",
         "Take a screenshot of it and email it to the support team.",
       ],
-      correctOptionIndex: 1,
+      correctOptionIndex: 0,
     },
   },
   {
@@ -110,7 +110,7 @@ export const levels: PlanetLevel[] = [
       question:
         "Why do gas fees spike during major NFT drops or high network traffic?",
       options: [
-        "Central banks increase rates.",
+        "Central banks increase the blockchain interest rate.",
         "Limited block space creates competition where users offer higher fees to be processed first.",
         "Validators stop working to manipulate prices.",
       ],
@@ -149,10 +149,10 @@ export const levels: PlanetLevel[] = [
       question: "What is the main advantage of a Smart Contract?",
       options: [
         "It can be easily changed by the bank at any time.",
-        "It executes automatically based on code, removing the need for a trusted third party.",
         "It requires a physical signature from a notary to work.",
+        "It executes automatically based on code, removing the need for a trusted third party.",
       ],
-      correctOptionIndex: 1,
+      correctOptionIndex: 2,
     },
   },
   {
@@ -186,11 +186,11 @@ export const levels: PlanetLevel[] = [
     finalQuest: {
       question: 'Why is an NFT "Non-Fungible"?',
       options: [
-        "Because it can be used as a currency to buy coffee.",
         "Because it is unique and cannot be exchanged on a one-to-one basis with something identical.",
+        "Because it can be used as a currency to buy coffee.",
         "Because it is controlled by a central digital art gallery.",
       ],
-      correctOptionIndex: 1,
+      correctOptionIndex: 0,
     },
   },
   {
@@ -226,7 +226,7 @@ export const levels: PlanetLevel[] = [
       options: [
         "A physical vault in a Swiss bank.",
         "A smart contract containing a pair of tokens that allows decentralized trading.",
-        "A swimming pool at a crypto conference.",
+        "A community of DeFi traders who meet in person.",
       ],
       correctOptionIndex: 1,
     },
@@ -263,10 +263,10 @@ export const levels: PlanetLevel[] = [
       question: "How are decisions made in a DAO?",
       options: [
         "By a Board of Directors appointed by a CEO.",
+        "By the government agency that issued the governance tokens.",
         "Through community proposals and voting by token holders.",
-        "By the person who created the blockchain.",
       ],
-      correctOptionIndex: 1,
+      correctOptionIndex: 2,
     },
   },
   {

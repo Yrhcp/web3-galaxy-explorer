@@ -6,6 +6,7 @@ import { EducationalConcept } from "@/src/types";
 interface PlanetViewProps {
   concepts: EducationalConcept[];
   planetName: string;
+  levelId: number;
   accentColor: string;
   onComplete: () => void;
 }
@@ -13,6 +14,7 @@ interface PlanetViewProps {
 export default function PlanetView({
   concepts,
   planetName,
+  levelId,
   accentColor,
   onComplete,
 }: PlanetViewProps) {
@@ -55,7 +57,7 @@ export default function PlanetView({
       <div className="mb-8 text-center">
         <div className="text-6xl mb-3 animate-float">🪐</div>
         <h2 className={`text-2xl font-bold ${accentColor}`}>
-          Planet {planetName}
+          Level {levelId}: {planetName}
         </h2>
         <p className="text-slate-400 text-sm mt-1">
           Concept {currentIndex + 1} of {concepts.length}
