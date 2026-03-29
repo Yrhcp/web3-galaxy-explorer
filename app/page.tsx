@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <main className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden">
       <StarField />
 
       <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center py-12">
