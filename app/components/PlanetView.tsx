@@ -94,7 +94,7 @@ export default function PlanetView({
           {/* Concept icon + title */}
           <div className="flex items-center gap-3 mb-5">
             <span className="text-3xl">{conceptIcons[currentIndex]}</span>
-            <h3 className={`text-xl font-semibold ${accentColor}`}>{concept.title}</h3>
+            <h3 className={`text-xl font-semibold text-white`}>{concept.title}</h3>
           </div>
 
           {/* Divider */}
