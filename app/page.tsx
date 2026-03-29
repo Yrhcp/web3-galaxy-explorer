@@ -64,7 +64,7 @@ export default function Home() {
               <div className="relative glass rounded-2xl p-8 max-w-sm">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center text-2xl shadow-lg shadow-blue-600/30 animate-orbitPulse">
-                    🪐
+                    {level.icon}
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider">
@@ -144,6 +144,7 @@ export default function Home() {
               concepts={level.threeConcepts}
               planetName={level.name}
               levelId={level.id}
+              icon={level.icon}
               accentColor={level.colorPalette.accent}
               onComplete={handleConceptsComplete}
             />

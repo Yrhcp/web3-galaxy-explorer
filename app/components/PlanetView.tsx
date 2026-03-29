@@ -7,6 +7,7 @@ interface PlanetViewProps {
   concepts: EducationalConcept[];
   planetName: string;
   levelId: number;
+  icon: string;
   accentColor: string;
   onComplete: () => void;
 }
@@ -15,6 +16,7 @@ export default function PlanetView({
   concepts,
   planetName,
   levelId,
+  icon,
   accentColor,
   onComplete,
 }: PlanetViewProps) {
@@ -55,7 +57,7 @@ export default function PlanetView({
     <div className="flex flex-col items-center w-full max-w-lg mx-auto px-4">
       {/* Planet Header */}
       <div className="mb-8 text-center">
-        <div className="text-6xl mb-3 animate-float">🪐</div>
+        <div className="text-6xl mb-3 animate-float">{icon}</div>
         <h2 className={`text-2xl font-bold ${accentColor}`}>
           Level {levelId}: {planetName}
         </h2>
