@@ -161,7 +161,7 @@ export const levels: PlanetLevel[] = [
         id: "evm",
         title: "The EVM",
         content:
-          "The Ethereum Virtual Machine. Think of it as a giant, global computer that executes all smart contracts. It's the \"brain\" of the Ethereum network.",
+          'The Ethereum Virtual Machine. Think of it as a giant, global computer that executes all smart contracts. It\'s the "brain" of the Ethereum network.',
       },
     ],
     finalQuest: {
@@ -219,53 +219,10 @@ export const levels: PlanetLevel[] = [
   },
 
   // ─────────────────────────────────────────────────────────
-  // LEVEL 6 · Venus 🌕  →  correctIndex: 1  (answer B)
+  // LEVEL 6 · Earth 🌍  →  correctIndex: 2  (answer C)
   // ─────────────────────────────────────────────────────────
   {
     id: 6,
-    name: "Venus",
-    englishName: "Venus",
-    icon: "🌕",
-    colorPalette: {
-      primary: "bg-yellow-900",
-      accent: "text-yellow-400",
-    },
-    threeConcepts: [
-      {
-        id: "defi",
-        title: "DeFi",
-        content:
-          "Decentralized Finance. It's a financial system built on public blockchains that doesn't rely on central intermediaries like banks or brokerages.",
-      },
-      {
-        id: "liquidity-pools",
-        title: "Liquidity Pools",
-        content:
-          "Instead of a central order book, DeFi uses smart contracts filled with crypto (Liquidity Pools) to allow users to trade tokens automatically.",
-      },
-      {
-        id: "yield-farming",
-        title: "Yield Farming",
-        content:
-          "A way to earn rewards by providing your crypto to liquidity pools. It's like earning interest, but powered by smart contract fees.",
-      },
-    ],
-    finalQuest: {
-      question: "What is a Liquidity Pool in DeFi?",
-      options: [
-        "A physical vault in a Swiss private bank.",
-        "A smart contract holding a pair of tokens that enables decentralized trading.",
-        "A community of DeFi traders who meet in person to negotiate prices.",
-      ],
-      correctOptionIndex: 1,
-    },
-  },
-
-  // ─────────────────────────────────────────────────────────
-  // LEVEL 7 · Earth 🌍  →  correctIndex: 2  (answer C)
-  // ─────────────────────────────────────────────────────────
-  {
-    id: 7,
     name: "Earth",
     englishName: "Earth",
     icon: "🌍",
@@ -301,6 +258,49 @@ export const levels: PlanetLevel[] = [
         "Through community proposals and voting by token holders.",
       ],
       correctOptionIndex: 2,
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 7 · Venus 🌕  →  correctIndex: 1  (answer B)
+  // ─────────────────────────────────────────────────────────
+  {
+    id: 7,
+    name: "Venus",
+    englishName: "Venus",
+    icon: "🌕",
+    colorPalette: {
+      primary: "bg-yellow-900",
+      accent: "text-yellow-400",
+    },
+    threeConcepts: [
+      {
+        id: "defi",
+        title: "DeFi",
+        content:
+          "Decentralized Finance. It's a financial system built on public blockchains that doesn't rely on central intermediaries like banks or brokerages.",
+      },
+      {
+        id: "liquidity-pools",
+        title: "Liquidity Pools",
+        content:
+          "Instead of a central order book, DeFi uses smart contracts filled with crypto (Liquidity Pools) to allow users to trade tokens automatically.",
+      },
+      {
+        id: "yield-farming",
+        title: "Yield Farming",
+        content:
+          "A way to earn rewards by providing your crypto to liquidity pools. It's like earning interest, but powered by smart contract fees.",
+      },
+    ],
+    finalQuest: {
+      question: "What is a Liquidity Pool in DeFi?",
+      options: [
+        "A physical vault in a Swiss private bank.",
+        "A smart contract holding a pair of tokens that enables decentralized trading.",
+        "A community of DeFi traders who meet in person to negotiate prices.",
+      ],
+      correctOptionIndex: 1,
     },
   },
 

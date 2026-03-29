@@ -7,6 +7,7 @@ interface QuestViewProps {
   quest: PlanetQuest;
   planetName: string;
   levelId: number;
+  icon: string;
   accentColor: string;
   nextLevelName?: string;
   onSuccess: () => void;
@@ -16,6 +17,7 @@ export default function QuestView({
   quest,
   planetName,
   levelId,
+  icon,
   accentColor,
   nextLevelName,
   onSuccess,
@@ -34,7 +36,6 @@ export default function QuestView({
     setHasAnswered(true);
 
     if (selectedIndex !== quest.correctOptionIndex) {
-      // Wrong answer - shake and allow retry
       setShakeWrong(true);
       setTimeout(() => {
         setShakeWrong(false);
@@ -42,122 +43,117 @@ export default function QuestView({
         setSelectedIndex(null);
       }, 1200);
     }
-    // Correct answer: user clicks the CTA button that appears
   };
 
-  const isCorrect =
-    hasAnswered && selectedIndex === quest.correctOptionIndex;
-  const isWrong =
-    hasAnswered && selectedIndex !== quest.correctOptionIndex;
+  const isCorrect = hasAnswered && selectedIndex === quest.correctOptionIndex;
+  const isWrong   = hasAnswered && selectedIndex !== quest.correctOptionIndex;
 
   return (
     <div className="flex flex-col items-center w-full max-w-lg mx-auto px-4">
-      {/* Quest Header */}
+
+      {/* ── Planet Header ── */}
       <div className="mb-8 text-center">
-        <div className="text-5xl mb-3">
-          {isCorrect ? (
-            <span className="animate-bounce inline-block">🎉</span>
-          ) : (
-            <span className="animate-float inline-block">⚡</span>
-          )}
+        {/* Hologram icon */}
+        <div className="relative inline-flex items-center justify-center mb-4">
+          {/* Glow ring behind the emoji */}
+          <div className="absolute w-24 h-24 rounded-full animate-glowPulse opacity-60"
+               style={{ background: "radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 70%)" }} />
+          <span className={`text-7xl animate-float hologram select-none ${isCorrect ? "animate-bounce" : ""}`}>
+            {isCorrect ? "🎉" : icon}
+          </span>
         </div>
-        <h2 className={`text-2xl font-bold ${accentColor}`}>
+
+        {/* Level + planet title */}
+        <h2 className="text-2xl font-bold text-gradient tracking-tight">
           Level {levelId}: {planetName}
         </h2>
-        <p className="text-slate-400 text-sm mt-1">
-          Answer correctly to proceed
+        <p className="text-slate-500 text-xs mt-1 uppercase tracking-widest font-medium">
+          Final Quest
         </p>
       </div>
 
-      {/* Question Card */}
-      <div className="relative w-full mb-8">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-purple-500/20 rounded-2xl blur-lg opacity-60" />
-        <div className="relative bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6">
+      {/* ── Question Card ── */}
+      <div className="relative w-full mb-6">
+        {/* Outer glow layer */}
+        <div className="absolute -inset-px rounded-3xl opacity-50"
+             style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3))", filter: "blur(8px)" }} />
+        <div className="glass-card relative p-6">
           <div className="flex items-start gap-3">
-            <span className="text-lg mt-0.5">❓</span>
-            <p className="text-white font-medium text-lg leading-relaxed">
+            <span className="text-xl mt-0.5 flex-shrink-0">❓</span>
+            <p className="text-white font-semibold text-[17px] leading-relaxed">
               {quest.question}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Options */}
-      <div
-        className={`w-full space-y-3 ${
-          shakeWrong ? "animate-shake" : ""
-        }`}
-      >
+      {/* ── Answer Options ── */}
+      <div className={`w-full space-y-3 ${shakeWrong ? "animate-shake" : ""}`}>
         {quest.options.map((option, index) => {
-          const isSelected = selectedIndex === index;
-          const showCorrect =
-            hasAnswered && index === quest.correctOptionIndex;
-          const showWrong =
-            hasAnswered &&
-            isSelected &&
-            index !== quest.correctOptionIndex;
+          const isSelected  = selectedIndex === index;
+          const showCorrect = hasAnswered && index === quest.correctOptionIndex;
+          const showWrong   = hasAnswered && isSelected && index !== quest.correctOptionIndex;
 
-          let borderClass = "border-slate-700/50 hover:border-slate-500/70";
-          let bgClass = "bg-slate-900/60 hover:bg-slate-800/60";
-          let ringClass = "";
+          // Derive styles per state
+          let borderStyle  = "border-white/8  hover:border-violet-500/40";
+          let bgStyle      = "bg-white/4      hover:bg-white/7";
+          let ringStyle    = "";
+          let glowStyle    = "";
 
           if (isSelected && !hasAnswered) {
-            borderClass = "border-blue-500/70";
-            bgClass = "bg-blue-950/40";
-            ringClass = "ring-1 ring-blue-500/30";
+            borderStyle = "border-indigo-500/60";
+            bgStyle     = "bg-indigo-500/10";
+            ringStyle   = "ring-1 ring-indigo-500/30";
+            glowStyle   = "shadow-lg shadow-indigo-500/10";
           }
           if (showCorrect) {
-            borderClass = "border-emerald-500/70";
-            bgClass = "bg-emerald-950/30";
-            ringClass = "ring-1 ring-emerald-500/30";
+            borderStyle = "border-emerald-500/60";
+            bgStyle     = "bg-emerald-500/10";
+            ringStyle   = "ring-1 ring-emerald-500/30";
+            glowStyle   = "shadow-lg shadow-emerald-500/20";
           }
           if (showWrong) {
-            borderClass = "border-red-500/70";
-            bgClass = "bg-red-950/30";
-            ringClass = "ring-1 ring-red-500/30";
+            borderStyle = "border-red-500/60";
+            bgStyle     = "bg-red-500/10";
+            ringStyle   = "ring-1 ring-red-500/30";
+            glowStyle   = "shadow-lg shadow-red-500/10";
           }
+
+          const letterBg = showCorrect
+            ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/40"
+            : showWrong
+            ? "bg-red-500 text-white shadow-lg shadow-red-500/40"
+            : isSelected
+            ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/40"
+            : "bg-white/8 text-slate-400 group-hover:bg-white/14";
+
+          const textColor = showCorrect
+            ? "text-emerald-300"
+            : showWrong
+            ? "text-red-300"
+            : isSelected
+            ? "text-indigo-200"
+            : "text-slate-300 group-hover:text-slate-100";
 
           return (
             <button
               key={index}
               onClick={() => handleSelect(index)}
               disabled={hasAnswered}
-              className={`w-full text-left p-4 rounded-xl border backdrop-blur-sm
+              className={`w-full text-left p-4 rounded-2xl border backdrop-blur-md
                 transition-all duration-200 group
-                ${borderClass} ${bgClass} ${ringClass}
+                ${borderStyle} ${bgStyle} ${ringStyle} ${glowStyle}
                 disabled:cursor-default
                 ${!hasAnswered ? "cursor-pointer active:scale-[0.98]" : ""}
               `}
             >
-              <div className="flex items-start gap-3">
-                {/* Option Letter */}
-                <span
-                  className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold transition-all duration-200
-                    ${
-                      showCorrect
-                        ? "bg-emerald-500 text-white"
-                        : showWrong
-                        ? "bg-red-500 text-white"
-                        : isSelected
-                        ? "bg-blue-500 text-white"
-                        : "bg-slate-700/50 text-slate-400 group-hover:bg-slate-600/50"
-                    }
-                  `}
-                >
+              <div className="flex items-center gap-3">
+                {/* Letter badge */}
+                <span className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center
+                  text-xs font-bold transition-all duration-200 ${letterBg}`}>
                   {showCorrect ? "✓" : showWrong ? "✗" : String.fromCharCode(65 + index)}
                 </span>
-
-                <span
-                  className={`text-[15px] leading-relaxed ${
-                    showCorrect
-                      ? "text-emerald-300"
-                      : showWrong
-                      ? "text-red-300"
-                      : isSelected
-                      ? "text-blue-200"
-                      : "text-slate-300 group-hover:text-slate-200"
-                  }`}
-                >
+                <span className={`text-[15px] leading-relaxed font-medium transition-colors duration-200 ${textColor}`}>
                   {option}
                 </span>
               </div>
@@ -166,26 +162,31 @@ export default function QuestView({
         })}
       </div>
 
-      {/* Feedback & Action */}
-      <div className="w-full mt-8">
+      {/* ── Feedback & CTA ── */}
+      <div className="w-full mt-8 space-y-3">
         {isCorrect && (
           <div className="flex flex-col items-center gap-4 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/30 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/30">
-              <span>🎉</span> Correct! Well done, explorer!
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold
+              bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              🎉 Correct! Well done, Explorer!
             </div>
+
             <button
               id="travel-next-btn"
               onClick={onSuccess}
-              className="relative group w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-300
-                bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500
-                text-white shadow-lg shadow-teal-600/30 hover:shadow-teal-500/40
-                hover:scale-[1.02] active:scale-[0.98]"
+              className="relative group w-full py-4 rounded-2xl text-sm font-bold text-white
+                transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+              style={{
+                background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 60%, #a21caf 100%)",
+                boxShadow:  "0 0 30px rgba(99,102,241,0.45), 0 4px 20px rgba(0,0,0,0.4)",
+              }}
             >
               <span className="flex items-center justify-center gap-2">
                 {nextLevelName === "The Sun"
                   ? "ENTER THE SUN ☀️"
                   : `🚀 Travel to ${nextLevelName ?? "Next Planet"}`}
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
@@ -194,9 +195,10 @@ export default function QuestView({
         )}
 
         {isWrong && (
-          <div className="text-center mb-4 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/30 text-red-400 rounded-full text-sm font-medium border border-red-500/30">
-              <span>🔄</span> Not quite — try again!
+          <div className="text-center animate-fadeIn">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold
+              bg-red-500/12 text-red-400 border border-red-500/30">
+              🔄 Not quite — try again!
             </div>
           </div>
         )}
@@ -205,11 +207,19 @@ export default function QuestView({
           <button
             onClick={handleSubmit}
             disabled={selectedIndex === null}
-            className="w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200
-              disabled:opacity-30 disabled:cursor-not-allowed
-              bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500
-              text-white shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40
-              hover:scale-[1.01] active:scale-[0.99]"
+            className="w-full py-4 rounded-2xl text-sm font-bold text-white
+              transition-all duration-200
+              disabled:opacity-25 disabled:cursor-not-allowed disabled:scale-100
+              hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              background:  selectedIndex !== null
+                ? "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)"
+                : "rgba(255,255,255,0.06)",
+              boxShadow: selectedIndex !== null
+                ? "0 0 22px rgba(99,102,241,0.35), 0 4px 15px rgba(0,0,0,0.4)"
+                : "none",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
           >
             Submit Answer
           </button>
