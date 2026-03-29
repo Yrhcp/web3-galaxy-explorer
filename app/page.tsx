@@ -153,7 +153,6 @@ export default function Home() {
               planetName={level.name}
               levelId={level.id}
               icon={level.icon}
-              accentColor={level.colorPalette.accent}
               onComplete={handleConceptsComplete}
             />
           </div>
@@ -170,7 +169,6 @@ export default function Home() {
               planetName={level.name}
               levelId={level.id}
               icon={level.icon}
-              accentColor={level.colorPalette.accent}
               nextLevelName={levels[currentLevelIndex + 1]?.name}
               onSuccess={handleQuestSuccess}
             />
