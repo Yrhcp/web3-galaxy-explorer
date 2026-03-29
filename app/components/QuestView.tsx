@@ -8,7 +8,6 @@ interface QuestViewProps {
   planetName: string;
   levelId: number;
   icon: string;
-  accentColor: string;
   nextLevelName?: string;
   onSuccess: () => void;
 }
@@ -18,7 +17,6 @@ export default function QuestView({
   planetName,
   levelId,
   icon,
-  accentColor,
   nextLevelName,
   onSuccess,
 }: QuestViewProps) {
