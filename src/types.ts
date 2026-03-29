@@ -14,6 +14,7 @@ export interface PlanetLevel {
   id: number;
   name: string;
   englishName: string;
+  icon: string;
   colorPalette: {
     primary: string;
     accent: string;

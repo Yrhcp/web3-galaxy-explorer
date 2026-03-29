@@ -1,10 +1,14 @@
 import { PlanetLevel } from "./types";
 
 export const levels: PlanetLevel[] = [
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 1 · Neptune 🔵  →  correctIndex: 2  (answer C)
+  // ─────────────────────────────────────────────────────────
   {
     id: 1,
     name: "Neptune",
     englishName: "Neptune",
+    icon: "🔵",
     colorPalette: {
       primary: "bg-blue-950",
       accent: "text-blue-400",
@@ -39,10 +43,15 @@ export const levels: PlanetLevel[] = [
       correctOptionIndex: 2,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 2 · Uranus 🧊  →  correctIndex: 0  (answer A)
+  // ─────────────────────────────────────────────────────────
   {
     id: 2,
     name: "Uranus",
     englishName: "Uranus",
+    icon: "🧊",
     colorPalette: {
       primary: "bg-teal-950",
       accent: "text-teal-400",
@@ -64,24 +73,29 @@ export const levels: PlanetLevel[] = [
         id: "custodial-vs-noncustodial",
         title: "Custodial vs. Non-Custodial",
         content:
-          'In a "Custodial" wallet (like on a centralized exchange), a company holds your private keys. In a "Non-Custodial" wallet (like MetaMask or a hardware wallet), only YOU hold the keys, meaning you have true ownership, but also total responsibility.',
+          'In a "Custodial" wallet (like on a centralized exchange), a company holds your private keys. In a "Non-Custodial" wallet (like MetaMask or a hardware wallet), only YOU hold the keys, meaning you have true ownership—but also total responsibility.',
       },
     ],
     finalQuest: {
       question:
-        "What should you do if a website or customer support agent asks for your 12-word Seed Phrase?",
+        "What should you do if a website asks for your 12-word Seed Phrase?",
       options: [
-        "Never share it under any circumstances, as it gives full access to your funds.",
-        "Share it immediately to verify your account identity.",
-        "Take a screenshot of it and email it to the support team.",
+        "Never share it — it gives full access to your funds.",
+        "Share it to verify your account identity.",
+        "Email it to the support team for safekeeping.",
       ],
       correctOptionIndex: 0,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 3 · Saturn 🪐  →  correctIndex: 1  (answer B)
+  // ─────────────────────────────────────────────────────────
   {
     id: 3,
     name: "Saturn",
     englishName: "Saturn",
+    icon: "🪐",
     colorPalette: {
       primary: "bg-amber-950",
       accent: "text-amber-400",
@@ -110,17 +124,22 @@ export const levels: PlanetLevel[] = [
       question:
         "Why do gas fees spike during major NFT drops or high network traffic?",
       options: [
-        "Central banks increase the blockchain interest rate.",
-        "Limited block space creates competition where users offer higher fees to be processed first.",
-        "Validators stop working to manipulate prices.",
+        "Because validators go on strike to raise prices.",
+        "Limited block space creates competition — users bid higher fees to be processed first.",
+        "Central banks raise the blockchain interest rate.",
       ],
       correctOptionIndex: 1,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 4 · Jupiter 🟠  →  correctIndex: 2  (answer C)
+  // ─────────────────────────────────────────────────────────
   {
     id: 4,
     name: "Jupiter",
     englishName: "Jupiter",
+    icon: "🟠",
     colorPalette: {
       primary: "bg-orange-950",
       accent: "text-orange-400",
@@ -142,23 +161,28 @@ export const levels: PlanetLevel[] = [
         id: "evm",
         title: "The EVM",
         content:
-          'The Ethereum Virtual Machine. Think of it as a giant, global computer that executes all smart contracts. It\'s the "brain" of the Ethereum network.',
+          "The Ethereum Virtual Machine. Think of it as a giant, global computer that executes all smart contracts. It's the \"brain\" of the Ethereum network.",
       },
     ],
     finalQuest: {
       question: "What is the main advantage of a Smart Contract?",
       options: [
-        "It can be easily changed by the bank at any time.",
-        "It requires a physical signature from a notary to work.",
-        "It executes automatically based on code, removing the need for a trusted third party.",
+        "A bank can modify it at any time for safety.",
+        "It requires a notary's physical signature to activate.",
+        "It executes automatically via code, removing the need for a trusted third party.",
       ],
       correctOptionIndex: 2,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 5 · Mars 🔴  →  correctIndex: 0  (answer A)
+  // ─────────────────────────────────────────────────────────
   {
     id: 5,
     name: "Mars",
     englishName: "Mars",
+    icon: "🔴",
     colorPalette: {
       primary: "bg-red-950",
       accent: "text-red-400",
@@ -184,19 +208,24 @@ export const levels: PlanetLevel[] = [
       },
     ],
     finalQuest: {
-      question: 'Why is an NFT "Non-Fungible"?',
+      question: 'Why is an NFT called "Non-Fungible"?',
       options: [
-        "Because it is unique and cannot be exchanged on a one-to-one basis with something identical.",
+        "Because it is unique and cannot be exchanged one-to-one with an identical item.",
         "Because it can be used as a currency to buy coffee.",
-        "Because it is controlled by a central digital art gallery.",
+        "Because it is managed by a central digital art gallery.",
       ],
       correctOptionIndex: 0,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 6 · Venus 🌕  →  correctIndex: 1  (answer B)
+  // ─────────────────────────────────────────────────────────
   {
     id: 6,
     name: "Venus",
     englishName: "Venus",
+    icon: "🌕",
     colorPalette: {
       primary: "bg-yellow-900",
       accent: "text-yellow-400",
@@ -212,29 +241,34 @@ export const levels: PlanetLevel[] = [
         id: "liquidity-pools",
         title: "Liquidity Pools",
         content:
-          "Instead of a central book-keeper, DeFi uses smart contracts filled with crypto (Liquidity Pools) to allow users to trade tokens automatically.",
+          "Instead of a central order book, DeFi uses smart contracts filled with crypto (Liquidity Pools) to allow users to trade tokens automatically.",
       },
       {
         id: "yield-farming",
         title: "Yield Farming",
         content:
-          "A way to earn rewards by providing your crypto to these liquidity pools. It's like earning interest, but powered by smart contract fees.",
+          "A way to earn rewards by providing your crypto to liquidity pools. It's like earning interest, but powered by smart contract fees.",
       },
     ],
     finalQuest: {
-      question: "What is a Liquidity Pool?",
+      question: "What is a Liquidity Pool in DeFi?",
       options: [
-        "A physical vault in a Swiss bank.",
-        "A smart contract containing a pair of tokens that allows decentralized trading.",
-        "A community of DeFi traders who meet in person.",
+        "A physical vault in a Swiss private bank.",
+        "A smart contract holding a pair of tokens that enables decentralized trading.",
+        "A community of DeFi traders who meet in person to negotiate prices.",
       ],
       correctOptionIndex: 1,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 7 · Earth 🌍  →  correctIndex: 2  (answer C)
+  // ─────────────────────────────────────────────────────────
   {
     id: 7,
     name: "Earth",
     englishName: "Earth",
+    icon: "🌍",
     colorPalette: {
       primary: "bg-green-950",
       accent: "text-green-400",
@@ -262,17 +296,22 @@ export const levels: PlanetLevel[] = [
     finalQuest: {
       question: "How are decisions made in a DAO?",
       options: [
-        "By a Board of Directors appointed by a CEO.",
+        "By a CEO and Board of Directors.",
         "By the government agency that issued the governance tokens.",
         "Through community proposals and voting by token holders.",
       ],
       correctOptionIndex: 2,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 8 · Mercury 🪨  →  correctIndex: 0  (answer A)
+  // ─────────────────────────────────────────────────────────
   {
     id: 8,
     name: "Mercury",
     englishName: "Mercury",
+    icon: "🪨",
     colorPalette: {
       primary: "bg-slate-900",
       accent: "text-slate-400",
@@ -294,7 +333,7 @@ export const levels: PlanetLevel[] = [
         id: "social-graph",
         title: "Social Graph / Farcaster",
         content:
-          "Web3 social networks allow you to own your content and followers. Your profile is not owned by a company, but by YOU on the blockchain.",
+          "Web3 social networks allow you to own your content and followers. Your profile is not owned by a company — it's yours, on the blockchain.",
       },
     ],
     finalQuest: {
@@ -302,16 +341,21 @@ export const levels: PlanetLevel[] = [
         "Why use a Layer 2 network like Base instead of the main Ethereum network?",
       options: [
         "To make transactions faster and significantly cheaper.",
-        "Because the main Ethereum network is closing down soon.",
-        "To hide your transactions from the public blockchain.",
+        "Because the main Ethereum network is shutting down soon.",
+        "To hide your transactions from public view.",
       ],
       correctOptionIndex: 0,
     },
   },
+
+  // ─────────────────────────────────────────────────────────
+  // LEVEL 9 · The Sun ☀️  →  correctIndex: 1  (answer B)
+  // ─────────────────────────────────────────────────────────
   {
     id: 9,
     name: "The Sun",
     englishName: "The Sun",
+    icon: "☀️",
     colorPalette: {
       primary: "bg-orange-500",
       accent: "text-yellow-100",
@@ -338,11 +382,11 @@ export const levels: PlanetLevel[] = [
     ],
     finalQuest: {
       question:
-        "You want to send an NFT to a friend on a Saturday night when the network is busy. You want it to be fast and cheap while keeping your identity secure. What is the best way?",
+        "You want to send an NFT on a busy Saturday night — fast, cheap, and secure. What is the best approach?",
       options: [
-        "Write a letter to a bank and ask them to verify the digital art transfer.",
-        "Use a Non-Custodial wallet on a Layer 2 network like Base to sign a transaction with your Private Key.",
-        "Share your 12-word Seed Phrase with a support bot to speed up the transaction.",
+        "Ask a bank to verify the transfer on your behalf.",
+        "Use a Non-Custodial wallet on a Layer 2 like Base to sign the transaction with your Private Key.",
+        "Share your 12-word Seed Phrase with a support bot to speed things up.",
       ],
       correctOptionIndex: 1,
     },
